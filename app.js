@@ -5,13 +5,11 @@ fetch("HNGi7 Central Leaderboard.csv")
 .then(users => {
     //For CSV
     const usersArray = users.split("\n");
-    leaderboard = usersArray.map(user => user.split(",")).slice(1).sort((a,b) => b[3] - a[3]);
+    const leaderboard = usersArray.map(user => user.split(",")).slice(1).sort((a,b) => b[3] - a[3]);
 
     //For JSON
     //leaderboard = users.sort((a,b) => b["TOTAL POINTS"] - a["TOTAL POINTS"]);
-});
 
-setTimeout(() => {
     var str = `<ol><li>
         <span>Rank</span><span></span><span>Username</span><span>Score</span><span></span>
     </li>`;
@@ -31,5 +29,4 @@ setTimeout(() => {
     document.querySelector("#user0 > span:nth-of-type(5) i").className += " fa-trophy";
     document.querySelector("#user1 > span:nth-of-type(5) i").className += " fa-medal";
     document.querySelector("#user2 > span:nth-of-type(5) i").className += " fa-award";
-    
-}, 1000);
+});
